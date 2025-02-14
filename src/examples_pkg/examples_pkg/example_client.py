@@ -11,9 +11,9 @@ class ExampleClientNode(Node):
 
         self.send_request(5, 2)
         
-        # Once a service exists, 
     def send_request(self, a, b):
-        # Instantiate a client object w/ service type being AddTwoInts from example_interfaces/srv
+        # Instantiate a client object w/ service type being AddTwoInts from example_interfaces/srv 
+        # (Note that this is a custom service type, there are many that already exist and can be imported as a traditional python package would.) 
         # Service type and name must match for the client and server to be able to communicate. 
         self.client = self.create_client(srv_type=AddTwoInts,srv_name='add_two_ints')
 
