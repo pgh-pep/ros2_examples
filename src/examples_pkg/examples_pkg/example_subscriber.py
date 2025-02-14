@@ -20,17 +20,6 @@ class NumberPublisherNode(Node):
 
     def callback_subscriber(self,msg):
         self.get_logger().info(f"I think that {msg.data}")
-        
-
-    # self.subscription = self.create_subscription(
-    #         String,
-    #         'topic',
-    #         self.listener_callback,
-    #         10)
-    #     self.subscription  # prevent unused variable warning
-
-    # def listener_callback(self, msg):
-    #     self.get_logger().info('I heard: "%s"' % msg.data)
 
 
 def main(args=None):
