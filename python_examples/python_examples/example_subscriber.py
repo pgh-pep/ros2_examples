@@ -5,25 +5,27 @@ from rclpy.node import Node
 from example_interfaces.msg import String
 
 
-class NumberPublisherNode(Node):
+class ExampleSubscriberNode(Node):
     def __init__(self):
-        super().__init__("number_publisher")
+        super().__init__("example_subscriber")
 
         # Creates a subscriber instance on the topic "pep_topic"
+
         # "pep_topic" will be a String type from example_interfaces.msg
         # Will run callback function whenever receives msg's
+
         # qos_profile is the 'backflow', or the number of previous published msg's stored in memory
-        self.subscription = self.create_subscription(String, 'pep_topic', self.callback_subscriber, 10)
+        self.subscription = self.create_subscription(String, "pep_topic", self.callback_subscriber, 10)
 
-        # Prints statement to terminal
-        self.get_logger().info(message="Initializing Example Subscriber:")
+        self.get_logger().info(message="Started example subscriber...")
 
-    def callback_subscriber(self,msg):
-        self.get_logger().info(f"I think that {msg.data}")
+    def callback_subscriber(self, msg: String):
+        self.get_logger().info(f"we need to find {msg.data}")
+
 
 def main(args=None):
     rclpy.init(args=args)
-    node = NumberPublisherNode()
+    node = ExampleSubscriberNode()
     rclpy.spin(node)
     rclpy.shutdown()
 
