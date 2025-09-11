@@ -23,7 +23,7 @@ install(PROGRAMS
     DESTINATION lib/${PROJECT_NAME}
 )
 
-# ament_auto_package(
-#     USE_SCOPED_HEADER_INSTALL_DIR
-#     INSTALL_TO_SHARE launch 
-# )
+ament_auto_package(
+    USE_SCOPED_HEADER_INSTALL_DIR
+    INSTALL_TO_SHARE  
+)
